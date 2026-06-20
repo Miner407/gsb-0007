@@ -5,12 +5,16 @@ import {
   CheckSquare,
   BarChart3,
   Dumbbell,
+  Calendar,
+  Moon,
 } from 'lucide-react';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: '概览' },
+  { to: '/cycles', icon: Calendar, label: '训练周期' },
   { to: '/plans', icon: ClipboardList, label: '训练计划' },
   { to: '/checkin', icon: CheckSquare, label: '每日打卡' },
+  { to: '/recovery', icon: Moon, label: '恢复管理' },
   { to: '/stats', icon: BarChart3, label: '数据统计' },
 ];
 

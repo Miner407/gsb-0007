@@ -1,57 +1,200 @@
-# React + TypeScript + Vite
+# FIT TRACK - 健身训练计划打卡应用
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一个功能完善的健身训练计划打卡应用，帮助你科学管理训练周期、记录训练数据、追踪恢复状态，提供数据洞察。
 
-Currently, two official plugins are available:
+## ✨ 功能特性
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🏋️ 训练计划管理
+- 创建和管理多个训练计划
+- 自定义每个训练日的动作安排
+- 配置动作的组数、次数范围和目标重量
+- 支持肌群分类标记
 
-## Expanding the ESLint configuration
+### 📅 训练周期计划
+- 按周创建训练周期
+- 配置每周训练目标
+- 设定训练日和重点肌群
+- 添加周期备注
+- 追踪周期完成进度
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ✅ 每日打卡
+- 记录每个动作的完成情况
+- 记录实际训练重量、组数、次数
+- **RPE 主观强度评分**（1-10级）
+- **完成质量评分**（1-5级）
+- **疼痛/不适记录**（0-5级）及疼痛部位
+- 训练备注记录
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 🌙 恢复状态管理
+- 记录每日睡眠时长
+- 疲劳程度评分（1-5级）
+- 酸痛程度评分（1-5级）
+- 压力水平评分（1-5级）
+- 恢复备注记录
+- 自动计算恢复评分（0-100分）
+
+### 📊 训练洞察面板
+- 近7天训练次数统计
+- 近7天总训练量（重量×组数×次数）
+- 平均 RPE 强度分析
+- 连续打卡天数追踪
+- 恢复评分趋势图表
+- **高风险训练提示**：
+  - 连续高强度训练警告
+  - 低恢复评分警告
+  - 中度以上疼痛警告
+  - 恢复记录提醒
+
+### 📈 力量增长图表
+- 按动作筛选查看历史数据
+- 按时间范围筛选（7天/30天/90天/全部）
+- 支持对比目标重量和实际重量
+- 直观的折线图展示力量趋势
+
+### 💾 数据持久化
+- 所有数据本地存储（localStorage）
+- 刷新页面数据不丢失
+- 支持数据版本迁移
+
+## 🛠️ 技术栈
+
+- **框架**: React 18 + TypeScript
+- **构建工具**: Vite 6
+- **状态管理**: Zustand（支持持久化）
+- **路由**: React Router v7
+- **图表**: Recharts
+- **样式**: Tailwind CSS
+- **图标**: Lucide React
+
+## 🚀 快速开始
+
+### 安装依赖
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 启动开发服务器
+```bash
+npm run dev
 ```
+
+### 构建生产版本
+```bash
+npm run build
+```
+
+### 预览生产版本
+```bash
+npm run preview
+```
+
+### 代码检查
+```bash
+npm run lint
+```
+
+### 类型检查
+```bash
+npm run check
+```
+
+## 📱 浏览器支持
+
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+- ✅ 移动端浏览器
+
+应用已配置以下浏览器验证：
+- 响应式设计，支持桌面和移动设备
+- 移动端底部导航栏
+- 渐进式 Web 应用基础支持
+- 无障碍访问支持
+
+## 📦 项目结构
+
+```
+src/
+├── components/          # 组件目录
+│   ├── checkin/        # 打卡相关组件
+│   ├── layout/         # 布局组件
+│   ├── plans/          # 计划相关组件
+│   └── stats/          # 统计图表组件
+├── pages/              # 页面组件
+│   ├── Dashboard.tsx   # 首页概览
+│   ├── Plans.tsx       # 训练计划列表
+│   ├── PlanEditor.tsx  # 训练计划编辑
+│   ├── Cycles.tsx      # 训练周期列表
+│   ├── CycleEditor.tsx # 训练周期编辑
+│   ├── Checkin.tsx     # 每日打卡
+│   ├── Recovery.tsx    # 恢复管理
+│   └── Stats.tsx       # 数据统计
+├── store/              # 状态管理
+│   └── useStore.ts     # Zustand store
+├── types/              # TypeScript 类型定义
+│   └── index.ts
+├── utils/              # 工具函数
+│   └── date.ts         # 日期处理工具
+├── lib/                # 通用库
+│   └── utils.ts        # 样式工具
+├── hooks/              # 自定义 Hooks
+│   └── useTheme.ts
+├── App.tsx             # 应用入口
+├── main.tsx            # 渲染入口
+└── index.css           # 全局样式
+```
+
+## 🎯 核心算法
+
+### 恢复评分计算
+```
+恢复评分 = 睡眠得分 + 疲劳得分 + 酸痛得分 + 压力得分
+- 睡眠得分：min(睡眠时长/9 × 30, 30)
+- 疲劳得分：(5 - 疲劳等级) × 20
+- 酸痛得分：(5 - 酸痛等级) × 25
+- 压力得分：(5 - 压力等级) × 25
+```
+
+### 训练量计算
+```
+训练量 = 实际重量 × 完成组数 × 完成次数
+```
+
+### 连续打卡计算
+- 从今天或昨天开始倒推
+- 连续有打卡记录的天数即为连续打卡天数
+
+### 高风险检测
+1. 平均 RPE ≥ 8 且 7 天训练 ≥ 5 次 → 高强度警告
+2. 连续 2 天以上恢复评分 < 50 → 低恢复警告
+3. 任何动作疼痛等级 ≥ 3 → 疼痛警告
+4. 7 天训练 ≥ 3 次但无恢复记录 → 记录提醒
+
+## 🔐 数据安全
+
+- 所有数据存储在浏览器本地 localStorage
+- 不会上传任何个人数据到服务器
+- 可通过浏览器清除数据
+
+## 📝 更新日志
+
+### v2.0.0 (2026-06-20)
+- ✨ 新增训练周期计划功能
+- ✨ 新增 RPE、完成质量、疼痛记录字段
+- ✨ 新增恢复状态记录功能
+- ✨ 新增训练洞察面板
+- ✨ 图表增加多维度筛选功能
+- ✨ 数据持久化增强（版本2）
+- 🔧 修复构建 chunk 警告
+- 🔧 更新项目 README 文档
+
+### v1.0.0
+- 基础训练计划管理
+- 每日打卡功能
+- 简单数据统计
+- 重量变化图表
+
+## 📄 开源协议
+
+MIT License

@@ -4,12 +4,15 @@ import {
   ClipboardList,
   CheckSquare,
   BarChart3,
+  Calendar,
+  Moon,
 } from 'lucide-react';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: '概览' },
-  { to: '/plans', icon: ClipboardList, label: '计划' },
+  { to: '/cycles', icon: Calendar, label: '周期' },
   { to: '/checkin', icon: CheckSquare, label: '打卡' },
+  { to: '/recovery', icon: Moon, label: '恢复' },
   { to: '/stats', icon: BarChart3, label: '统计' },
 ];
 

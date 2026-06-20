@@ -5,6 +5,9 @@ import { Plans } from "@/pages/Plans";
 import { PlanEditor } from "@/pages/PlanEditor";
 import { Checkin } from "@/pages/Checkin";
 import { Stats } from "@/pages/Stats";
+import { Cycles } from "@/pages/Cycles";
+import { CycleEditor } from "@/pages/CycleEditor";
+import { Recovery } from "@/pages/Recovery";
 
 export default function App() {
   return (
@@ -17,6 +20,10 @@ export default function App() {
           <Route path="/plans/:id" element={<PlanEditor />} />
           <Route path="/checkin" element={<Checkin />} />
           <Route path="/stats" element={<Stats />} />
+          <Route path="/cycles" element={<Cycles />} />
+          <Route path="/cycles/new" element={<CycleEditor />} />
+          <Route path="/cycles/:id" element={<CycleEditor />} />
+          <Route path="/recovery" element={<Recovery />} />
         </Route>
       </Routes>
     </Router>
