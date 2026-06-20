@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0f0f0f;
+    color: #e0e0e0;
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2d2d2d;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff6b35;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-bg-secondary border border-bg-tertiary rounded-xl shadow-card backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-accent/50 hover:shadow-glow hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-hover text-white font-medium px-6 py-2.5 rounded-lg transition-all duration-200 hover:shadow-glow active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-bg-tertiary hover:bg-bg-tertiary/80 text-text font-medium px-6 py-2.5 rounded-lg border border-bg-tertiary transition-all duration-200 hover:border-accent/30 active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-red-500/20 hover:bg-red-500/30 text-red-400 font-medium px-6 py-2.5 rounded-lg border border-red-500/30 transition-all duration-200 active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full bg-bg-tertiary border border-bg-tertiary text-text px-4 py-2.5 rounded-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200 placeholder:text-text-dim;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-text-muted mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:text-text hover:bg-bg-tertiary transition-all duration-200;
+  }
+
+  .nav-link.active {
+    @apply text-white bg-accent/10 border-l-2 border-accent;
+  }
+
+  .glass-panel {
+    @apply bg-bg-secondary/80 backdrop-blur-xl border border-bg-tertiary/50;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-gold bg-clip-text text-transparent;
+  }
+
+  .progress-bar {
+    @apply h-2 bg-bg-tertiary rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-gradient-to-r from-accent to-accent-hover rounded-full transition-all duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
